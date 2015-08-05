@@ -42,3 +42,23 @@ request.get("https://streamboat.tv/sub/MyChannel")
      // My message
   });
 ```
+
+## Subscribe a WebHook (requires Auth token)
+```
+>>> import requests
+>>> data = {
+...   'hook': "https://example.com/webhook"
+... }
+>>> r = requests.post("https://streamboat.tv/hook/MyChannel", data=data, headers={'Authorization': "Token 12345"})
+```
+Messages published to `MyChannel` will be `POST`'d to `https://example.com/webhook`
+
+## Unsubscribe a WebHook (requires Auth token)
+```
+>>> import requests
+>>> data = {
+...   'hook': "https://example.com/webhook"
+... }
+>>> r = requests.post("https://streamboat.tv/unhook/MyChannel", data=data, headers={'Authorization': "Token 12345"})
+```
+Messages published to `MyChannel` will no longer be `POST`'d to `https://example.com/webhook`
