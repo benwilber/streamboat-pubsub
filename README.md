@@ -1,7 +1,7 @@
 # Streamboat PubSub
 Really easy PubSub for servers, mobile apps, and web clients
 
-## Publishing
+## Publishing (requires Auth token)
 ```
   $ curl -X POST -H "Authorization: Token 12345" \
       https://streamboat.tv/pub/MyChannel \
