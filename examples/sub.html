@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>WebSocket Subscriber example</title>
+        <script>
+            var ws = new WebSocket("wss://streamboat.tv/sub/hello");
+            ws.onmessage = function(event) {
+                document.getElementById("messages").innerHTML += event.data + "<br>";
+            };
+        </script
+    </head>
+    <body>
+        <div id="messages">
+            Waiting for messages ..<br>
+        </div>
+    </body>
+</html>
