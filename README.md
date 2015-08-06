@@ -1,7 +1,8 @@
 # Streamboat PubSub
 Really easy PubSub for servers, mobile apps, and web clients
 
-## Publishing (requires Auth token)
+## Publishing
+(requires Auth token)
 ```
   $ curl -X POST -H "Authorization: Token 12345" \
       https://streamboat.tv/pub/MyChannel \
@@ -43,7 +44,8 @@ request.get("https://streamboat.tv/sub/MyChannel")
   });
 ```
 
-## Subscribe a WebHook (requires Auth token)
+## Subscribe a WebHook
+(requires Auth token)
 ```
 >>> import requests
 >>> data = {
@@ -53,7 +55,8 @@ request.get("https://streamboat.tv/sub/MyChannel")
 ```
 Messages published to `MyChannel` will be `POST`'d to `https://example.com/webhook`
 
-## Unsubscribe a WebHook (requires Auth token)
+## Unsubscribe a WebHook
+(requires Auth token)
 ```
 >>> import requests
 >>> data = {
