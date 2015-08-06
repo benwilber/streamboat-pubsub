@@ -63,3 +63,13 @@ requires Auth token
 >>> requests.post("https://streamboat.tv/unhook/MyChannel", data=data, headers=auth)
 ```
 Messages published to `MyChannel` will no longer be `POST`'d to `https://example.com/webhook`
+
+## Channels
+Channel names can be of any length and must be validated by the following regex:
+```
+^[\w\d\-_:|]+$
+```
+Basically, any combination of alpha-numeric characters, hyphens, underscores, colons, and pipes.
+
+## Channel Privacy
+Anyone can publish or subscribe to any channel if they know the name.  If you would like to make sure your channels are private then you should make them unguessable.  A simple way to do this is to use a UUID or crypto hash of some secret value.  For example, the `MyChannel` name could be hashed with some secret making it `5923bf288ef5f0b068fd5a23d0f5aa3d851dce7a`.  Just namespace your channels like `5923bf288ef5f0b068fd5a23d0f5aa3d851dce7a:MyChannel` so no one can publish/subscribe to your channels except you.
