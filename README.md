@@ -2,7 +2,7 @@
 Really easy PubSub for servers, mobile apps, and web clients
 
 ## Publishing
-(requires Auth token)
+requires Auth token
 ```
   $ curl -X POST -H "Authorization: Token 12345" \
       https://streamboat.tv/pub/MyChannel \
@@ -45,23 +45,21 @@ request.get("https://streamboat.tv/sub/MyChannel")
 ```
 
 ## Subscribe a WebHook
-(requires Auth token)
+requires Auth token
 ```
 >>> import requests
->>> data = {
-...   'hook': "https://example.com/webhook"
-... }
->>> r = requests.post("https://streamboat.tv/hook/MyChannel", data=data, headers={'Authorization': "Token 12345"})
+>>> data = {'hook_url': "https://example.com/webhook"}
+>>> auth = {'Authorization': "Token 12345"}
+>>> requests.post("https://streamboat.tv/hook/MyChannel", data=data, headers=auth)
 ```
 Messages published to `MyChannel` will be `POST`'d to `https://example.com/webhook`
 
 ## Unsubscribe a WebHook
-(requires Auth token)
+requires Auth token
 ```
 >>> import requests
->>> data = {
-...   'hook': "https://example.com/webhook"
-... }
->>> r = requests.post("https://streamboat.tv/unhook/MyChannel", data=data, headers={'Authorization': "Token 12345"})
+>>> data = {'hook_url': "https://example.com/webhook"}
+>>> auth = {'Authorization': "Token 12345"}
+>>> requests.post("https://streamboat.tv/unhook/MyChannel", data=data, headers=auth)
 ```
 Messages published to `MyChannel` will no longer be `POST`'d to `https://example.com/webhook`
